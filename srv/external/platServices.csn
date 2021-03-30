@@ -1,0 +1,7265 @@
+{
+  "definitions": {
+    "platServices": {
+      "kind": "service"
+    },
+    "platServices.CustomerCustom": {
+      "kind": "type",
+      "elements": {
+        "number": {
+          "type": "cds.Integer"
+        },
+        "title": {
+          "type": "cds.LargeString"
+        },
+        "subtitle": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.TileCountCustom": {
+      "kind": "type",
+      "elements": {
+        "number": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "platServices.CustomerCountGroupedCustom": {
+      "kind": "type",
+      "elements": {
+        "count": {
+          "type": "cds.Integer"
+        },
+        "companyId": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "platServices.GenericUserInfoCustom": {
+      "kind": "type",
+      "elements": {
+        "username": {
+          "type": "cds.LargeString"
+        },
+        "firstName": {
+          "type": "cds.LargeString"
+        },
+        "lastName": {
+          "type": "cds.LargeString"
+        },
+        "email": {
+          "type": "cds.LargeString"
+        },
+        "userRole": {
+          "type": "cds.LargeString"
+        },
+        "partnerCompanyId": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.ReferralCustom": {
+      "kind": "type",
+      "elements": {
+        "Id": {
+          "type": "cds.Integer"
+        },
+        "Username": {
+          "type": "cds.LargeString"
+        },
+        "FirstName": {
+          "type": "cds.LargeString"
+        },
+        "LastName": {
+          "type": "cds.LargeString"
+        },
+        "Email": {
+          "type": "cds.LargeString"
+        },
+        "Channel": {
+          "type": "cds.LargeString"
+        },
+        "ReferredEmail": {
+          "type": "cds.LargeString"
+        },
+        "Cc": {
+          "type": "cds.LargeString"
+        },
+        "Message": {
+          "type": "cds.LargeString"
+        },
+        "AppKey": {
+          "type": "cds.LargeString"
+        },
+        "PartnerCompany": {
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "platServices.BannerCustom": {
+      "kind": "type",
+      "elements": {
+        "missionsCount": {
+          "type": "cds.Integer"
+        },
+        "latestAppName1": {
+          "type": "cds.LargeString"
+        },
+        "latestAppType1": {
+          "type": "cds.LargeString"
+        },
+        "latestAppId1": {
+          "type": "cds.Integer"
+        },
+        "latestUseCaseId1": {
+          "type": "cds.Integer"
+        },
+        "latestAppCreatedAt1": {
+          "type": "cds.Timestamp"
+        },
+        "latestAppName2": {
+          "type": "cds.LargeString"
+        },
+        "latestAppType2": {
+          "type": "cds.LargeString"
+        },
+        "latestAppId2": {
+          "type": "cds.Integer"
+        },
+        "latestUseCaseId2": {
+          "type": "cds.Integer"
+        },
+        "latestAppCreatedAt2": {
+          "type": "cds.Timestamp"
+        },
+        "latestAppName3": {
+          "type": "cds.LargeString"
+        },
+        "latestAppType3": {
+          "type": "cds.LargeString"
+        },
+        "latestAppId3": {
+          "type": "cds.Integer"
+        },
+        "latestUseCaseId3": {
+          "type": "cds.Integer"
+        },
+        "latestAppCreatedAt3": {
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "platServices.HealthCheckCustom": {
+      "kind": "type",
+      "elements": {
+        "dbConnection": {
+          "type": "cds.Boolean"
+        },
+        "semosConnection": {
+          "type": "cds.Boolean"
+        }
+      }
+    },
+    "platServices.PhaseCustom": {
+      "kind": "type",
+      "elements": {
+        "phase": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.MissionNotes": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "External": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "Notes": {
+          "type": "cds.String",
+          "length": 50000
+        },
+        "OriginalPhase": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RequestedBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RequestedByName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "TargetPhase": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Recipes": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "RecipeId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "AdditionalParameters": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 4000
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "RecipeName": {
+          "type": "cds.String",
+          "length": 512
+        }
+      }
+    },
+    "platServices.ApplicationMaterials": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Example": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Material": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Optional": {
+          "type": "cds.Boolean"
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "MaterialDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Materials",
+          "on": [
+            {
+              "ref": [
+                "MaterialDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Material"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.SalesOrders": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SalesOrderID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LineItemDetails": {
+          "type": "cds.Association",
+          "target": "platServices.LineItems",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "LineItemDetails",
+                "Salesorder"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "SalesOrderID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ServiceDetailss": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CalculatorLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CsnComponent": {
+          "type": "cds.LargeString"
+        },
+        "FeatureDescLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Icon": {
+          "type": "cds.LargeString"
+        },
+        "LicenseModelType": {
+          "type": "cds.LargeString"
+        },
+        "LongDescription": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "MaterialId": {
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ParentService": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "PricingExample": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ProductId": {
+          "type": "cds.LargeString"
+        },
+        "ProductType": {
+          "type": "cds.LargeString"
+        },
+        "ReferencedTools": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "SapStoreLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ServiceJiraId": {
+          "type": "cds.LargeString"
+        },
+        "ShortDescription": {
+          "type": "cds.LargeString"
+        },
+        "ShortName": {
+          "type": "cds.LargeString"
+        },
+        "Tags": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ServiceResourcesDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceResourcess",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ServiceResourcesDetails",
+                "ServiceDetails"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "ServiceMetricDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceMetrics",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "ServiceHeadlinesDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceHeadliness",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "ServicePlanDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServicePlans",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.MissionBoardStates": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "MissionId": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CompletedPercentage": {
+          "type": "cds.Integer"
+        },
+        "Phase": {
+          "type": "cds.String",
+          "length": 512
+        }
+      }
+    },
+    "platServices.InvitedCustomers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.UserFavMissions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Mission": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Username": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.SearchTagLibrarys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "SearchTag": {
+          "type": "cds.String",
+          "length": 100
+        }
+      }
+    },
+    "platServices.ViewBannerCustoms": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ApplicationId": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "MissionId": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "StartDate": {
+          "type": "cds.Timestamp"
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "UseCaseId": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "platServices.CardAttachments": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Link": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 256
+        }
+      }
+    },
+    "platServices.RoadmapPeriodCategorys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Period": {
+          "type": "cds.Integer"
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RoadmapDeliverableDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RoadmapDeliverables",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "RoadmapDeliverableDetails",
+                "RoadmapPeriodCategory"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "RoadmapPeriodDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RoadmapPeriods",
+          "on": [
+            {
+              "ref": [
+                "RoadmapPeriodDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Period"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionScenarios": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CardsId": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Desc": {
+          "type": "cds.String",
+          "length": 300
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ServiceId": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.CustomerCompanys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "AppMissionsCount": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomMissionsCount": {
+          "type": "cds.Integer"
+        },
+        "EmailDomain": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LearningMissionsCount": {
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PlatformMissionsCount": {
+          "type": "cds.Integer"
+        },
+        "SapCPDataCenter": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SingleUser": {
+          "type": "cds.Boolean"
+        },
+        "AwardDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Awards",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "AwardDetails",
+                "CustomerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CloudReportingCustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CloudReportingCustomerCompanys"
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "CustomerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PartnerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.ApplicationSurveys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "PercentComplete": {
+          "type": "cds.Integer"
+        },
+        "Points": {
+          "type": "cds.Integer"
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SurveyID": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ApplicationMetadatas": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CompanyName": {
+          "type": "cds.LargeString"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PhaseType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.ConfigQuestionAnswers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "AnswerText": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Question": {
+          "type": "cds.Integer"
+        },
+        "AnswerActionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.AnswerActions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "AnswerActionDetails",
+                "Answer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionMasterConfigQuestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionMasterConfigQuestions",
+          "on": [
+            {
+              "ref": [
+                "MissionMasterConfigQuestionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Question"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.PainPoints": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCases",
+          "on": [
+            {
+              "ref": [
+                "UseCaseDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.RoadmapPeriods": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ReleasedVersions": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Roadmap": {
+          "type": "cds.Integer"
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RoadmapPeriodCategoryDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RoadmapPeriodCategorys",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "RoadmapDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Roadmaps",
+          "on": [
+            {
+              "ref": [
+                "RoadmapDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Roadmap"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.CustomizeMissionMasterConfigurations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SurveyType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "MissionMasterConfigQuestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionMasterConfigQuestions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionMasterConfigQuestionDetails",
+                "Configuration"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UsecaseSuggestionConversationReplys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Text": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "UsecaseSuggestionConversation": {
+          "type": "cds.LargeString"
+        },
+        "UsecaseSuggestionConversationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UsecaseSuggestionConversations",
+          "on": [
+            {
+              "ref": [
+                "UsecaseSuggestionConversationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "UsecaseSuggestionConversation"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.LineItems": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "LineItemID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Salesorder": {
+          "type": "cds.Integer"
+        },
+        "SalesOrderDetails": {
+          "type": "cds.Association",
+          "target": "platServices.SalesOrders",
+          "on": [
+            {
+              "ref": [
+                "SalesOrderDetails",
+                "SalesOrderID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Salesorder"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Awards": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "AwardType": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CustomerCompany": {
+          "type": "cds.Integer"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "Reason": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Customer"
+              ]
+            }
+          ]
+        },
+        "CustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerCompanys",
+          "on": [
+            {
+              "ref": [
+                "CustomerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "CustomerCompany"
+              ]
+            }
+          ]
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.BlockRates": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "BlockSize": {
+          "type": "cds.LargeString"
+        },
+        "ChargingPeriod": {
+          "type": "cds.LargeString"
+        },
+        "MetricId": {
+          "type": "cds.LargeString"
+        },
+        "PricePerBlock": {
+          "type": "cds.LargeString"
+        },
+        "Quantity": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.ApplicationStagings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ApplicationType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ProductCategory": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SapContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "UseCaseStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCaseStagings",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "UseCaseStagingDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UsecaseSuggestions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Body": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "ContactCustomer": {
+          "type": "cds.Boolean"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Lob": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "Mission": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "Products": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "UsecaseSuggestionConversationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UsecaseSuggestionConversations",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "UsecaseSuggestionConversationDetails",
+                "UcSuggestion"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Customer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionInstanceMetadatas": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CompanyName": {
+          "type": "cds.LargeString"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PhaseType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RequestedState": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.UserPersonalizations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Name": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Username": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Value": {
+          "type": "cds.String",
+          "length": 1024
+        }
+      }
+    },
+    "platServices.EntitlementPlans": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CommercialModels": {
+          "type": "cds.LargeString"
+        },
+        "DirectBillingRelationship": {
+          "type": "cds.LargeString"
+        },
+        "External": {
+          "type": "cds.Boolean"
+        },
+        "ServicePlanId": {
+          "type": "cds.LargeString"
+        },
+        "TechAssetVariantsString": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "EnvironmentDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Environments",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "MaterialNumberMappingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MaterialNumberMappings",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "RatePlanDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RatePlans",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.CustomerStorys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "ContentLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ContentOwner": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ContentType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerLogo": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CustomerName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ExpiryDate": {
+          "type": "cds.Timestamp"
+        },
+        "ImageLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ImportedAt": {
+          "type": "cds.Timestamp"
+        },
+        "Keywords": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Products": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.CardComments": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Content": {
+          "type": "cds.String",
+          "length": 2000
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.PlatformXConfigurations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Name": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Value": {
+          "type": "cds.String",
+          "length": 1024
+        }
+      }
+    },
+    "platServices.Applications": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "AppCenterUrl": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "AppIconUrl": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ApplicationType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "BoardID": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Channel": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CommunityLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CommunityTags": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "DemoActive": {
+          "type": "cds.Boolean"
+        },
+        "DemoButtonText": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "DemoDisabled": {
+          "type": "cds.Boolean"
+        },
+        "DemoUrl": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "EstimatorUrl": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ExternalAppId": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "IsSAPInternal": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Lob": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "MissionCount": {
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "PartnerContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PhaseType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ProductCategory": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ReferralUrl": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RelatedMissionTags": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "SapContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SearchTags": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SupportMode": {
+          "type": "cds.Integer"
+        },
+        "SupportText": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ApplicationBoardConfigurationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationBoardConfigurations"
+        },
+        "ApplicationMaterialDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationMaterials",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ApplicationMaterialDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CustomerReferenceDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerReferences",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "DocumentDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Documents",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "DocumentDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "ErrorArchiveDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ErrorArchives",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ErrorArchiveDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "FAQDetails": {
+          "type": "cds.Association",
+          "target": "platServices.FAQs",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "FAQDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "GuidedAnswerLinkDetails": {
+          "type": "cds.Association",
+          "target": "platServices.GuidedAnswerLinks",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "GuidedAnswerLinkDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        },
+        "PartnerContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "PartnerContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerContact"
+              ]
+            }
+          ]
+        },
+        "PartnerDetails1": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "PartnerAppRoleMappingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerAppRoleMappings",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "QuestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Questions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "QuestionDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionReviewRequestDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionReviewRequests"
+        },
+        "SAPContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "SAPContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "SapContact"
+              ]
+            }
+          ]
+        },
+        "ApplicationSurveyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationSurveys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ApplicationSurveyDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "UseCaseDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCases",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "UseCaseDetails",
+                "Application"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Tiers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Bound": {
+          "type": "cds.LargeString"
+        },
+        "FixedPrice": {
+          "type": "cds.LargeString"
+        },
+        "PricePerUnit": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.Materials": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Category": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "Link": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Metric": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SlmProductId": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.BlacklistedDomains": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Domain": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.NurturingCenterUsers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Email": {
+          "key": true,
+          "type": "cds.String",
+          "length": 512
+        },
+        "CompanyId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.ServicePlans": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ServicePlanOrder": {
+          "type": "cds.Integer"
+        },
+        "EntitlementPlanDetails": {
+          "type": "cds.Association",
+          "target": "platServices.EntitlementPlans",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "EnvironmentDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Environments",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "FeatureDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Features",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "IncludedServices": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "RequiredServices": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "ServiceDetailsDetails2": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss"
+        }
+      }
+    },
+    "platServices.MissionConversations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "Text": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        },
+        "MissionConversationReplyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionConversationReplys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionConversationReplyDetails",
+                "MissionConversation"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionCards": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CardGroup": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Content": {
+          "type": "cds.String",
+          "length": 5000
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ExecutionTimeInHours": {
+          "type": "cds.Integer"
+        },
+        "ExperienceLevel": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Label": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RecipeId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ServiceId": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.TrialUserAccounts": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AccountId": {
+          "type": "cds.String",
+          "length": 120
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "OrgId": {
+          "type": "cds.String",
+          "length": 120
+        },
+        "SpaceId": {
+          "type": "cds.String",
+          "length": 120
+        },
+        "SubAccountId": {
+          "type": "cds.String",
+          "length": 120
+        }
+      }
+    },
+    "platServices.ViewFuzzySearchServicess": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ServiceId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Score": {
+          "type": "cds.Double"
+        },
+        "ShortName": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Metrics": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Code": {
+          "type": "cds.LargeString"
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.ApplicationTypes": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Classification": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "TemplateBoardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationTypeSubCategoryDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationTypeSubCategorys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ApplicationTypeSubCategoryDetails",
+                "ApplicationType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "ApplicationTypeTemplateDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationTypeTemplates",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ApplicationTypeTemplateDetails",
+                "ApplicationType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Journeys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCases",
+          "on": [
+            {
+              "ref": [
+                "UseCaseDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ViewSearchStringCustoms": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SearchString": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Count": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "platServices.Labels": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Card": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LabelColor": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "LabelText": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CardDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Cards",
+          "on": [
+            {
+              "ref": [
+                "CardDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Card"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.PainPointStagings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCaseStagings",
+          "on": [
+            {
+              "ref": [
+                "UseCaseStagingDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UserFavServices": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Service": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Username": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "platServices.Activitys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "Header": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "RelatedObjectLink": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Environments": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "EnvId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Infrastructure": {
+          "type": "cds.LargeString"
+        },
+        "Platform": {
+          "type": "cds.LargeString"
+        },
+        "Region": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.CustomerReferences": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ContentLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerLogo": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CustomerName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 200
+        },
+        "ImageLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications"
+        }
+      }
+    },
+    "platServices.CardGroups": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.BenefitStagings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCaseStagings",
+          "on": [
+            {
+              "ref": [
+                "UseCaseStagingDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UserFavServiceModels": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Service": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ServiceIcon": {
+          "type": "cds.LargeString"
+        },
+        "ServiceName": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.MissionCardAssociations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CardId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "MissionId": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.Tools": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AssetLink": {
+          "type": "cds.LargeString"
+        },
+        "AssetType": {
+          "type": "cds.LargeString"
+        },
+        "Icon": {
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ShortDesc": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.CloudPlatformAccounts": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 512
+        }
+      }
+    },
+    "platServices.ApplicationTypeSubCategorys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ApplicationType": {
+          "type": "cds.Integer"
+        },
+        "CategoryLabel": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ApplicationTypeDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationTypes",
+          "on": [
+            {
+              "ref": [
+                "ApplicationTypeDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ApplicationType"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.AuthorizedMissionMembers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerEmail": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Markets": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Code": {
+          "type": "cds.LargeString"
+        },
+        "CurrencyId": {
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.Cards": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardTypeRefEntity": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Completed": {
+          "type": "cds.Boolean"
+        },
+        "CompletedDate": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "DueDate": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ListId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ListName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "NextCardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PrevCardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LabelDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Labels"
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.MissionSurveys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SurveyURL": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionReviewRequests": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "State": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "ReviewCommentsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ReviewCommentss",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ReviewCommentsDetails",
+                "ReviewRequest"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.CardDetails": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardContent": {
+          "type": "cds.String",
+          "length": 5000
+        },
+        "CardType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardTypeRefEntity": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Completed": {
+          "type": "cds.Boolean"
+        },
+        "CompletedDate": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "DueDate": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ListId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ListName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "NextCardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PrevCardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardAttachmentDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CardAttachments",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "CardCommentDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CardComments",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "LabelDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Labels"
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.ServiceHeadliness": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Header": {
+          "type": "cds.LargeString"
+        },
+        "RowOrder": {
+          "type": "cds.Integer"
+        },
+        "ServiceDetailsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss"
+        }
+      }
+    },
+    "platServices.MaterialNumberMappings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ChargingPeriod": {
+          "type": "cds.LargeString"
+        },
+        "MetricId": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.EmailTemplates": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Name": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Body": {
+          "type": "cds.String",
+          "length": 50000
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 4096
+        },
+        "Subject": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Missions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "BoardUpdatedDate": {
+          "type": "cds.Timestamp"
+        },
+        "BoardUrl": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CanContactCustomer": {
+          "type": "cds.Boolean"
+        },
+        "Channel": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerCompanyID": {
+          "type": "cds.Integer"
+        },
+        "CustomerStatusRequested": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "KickoffFlag": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "MissionVersion": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "PartnerContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerStatusRequested": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PercentComplete": {
+          "type": "cds.Integer"
+        },
+        "Points": {
+          "type": "cds.Integer"
+        },
+        "PrivateMission": {
+          "type": "cds.Boolean"
+        },
+        "SapContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "StartDate": {
+          "type": "cds.Timestamp"
+        },
+        "StartedByCustomer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "StatusChangeDate": {
+          "type": "cds.Timestamp"
+        },
+        "SupportTeamMembers": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "AuthorizedMissionMemberDetails": {
+          "type": "cds.Association",
+          "target": "platServices.AuthorizedMissionMembers",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "AuthorizedMissionMemberDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "AwardDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Awards",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "AwardDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionConversationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionConversations",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionConversationDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CustomersDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "FreeStyleInfoDetails": {
+          "type": "cds.Association",
+          "target": "platServices.FreeStyleInfos"
+        },
+        "MissionProjectDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionProjects",
+          "on": [
+            {
+              "ref": [
+                "MissionProjectDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionNoteDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionNotes",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionNoteDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        },
+        "PartnerContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "PartnerContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerContact"
+              ]
+            }
+          ]
+        },
+        "PartnersDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "SAPContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "SAPContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "SapContact"
+              ]
+            }
+          ]
+        },
+        "StartedByCustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "StartedByCustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "StartedByCustomer"
+              ]
+            }
+          ]
+        },
+        "MissionSurveyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionSurveys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionSurveyDetails",
+                "Mission"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "UseCaseDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCases",
+          "on": [
+            {
+              "ref": [
+                "UseCaseDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ErrorArchives": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "ArchiveDate": {
+          "type": "cds.Timestamp"
+        },
+        "CallingAPI": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CallingFunctionImport": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Category": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ErrorCode": {
+          "type": "cds.Integer"
+        },
+        "ErrorMessage": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "InputVariables": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Level": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionId": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Customer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.CardActivitys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "AppId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardAction": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CardName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "MissionId": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Benefits": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCases",
+          "on": [
+            {
+              "ref": [
+                "UseCaseDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.RoadmapDeliverables": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "DeliveryId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "DeliveryStatus": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "RoadmapPeriodCategory": {
+          "type": "cds.Integer"
+        },
+        "ServiceId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RoadmapPeriodCategoryDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RoadmapPeriodCategorys",
+          "on": [
+            {
+              "ref": [
+                "RoadmapPeriodCategoryDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "RoadmapPeriodCategory"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ProposedPartners": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ApprovalStatus": {
+          "type": "cds.Integer"
+        },
+        "Classification": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FirstName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "PartnerId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ProcessedBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ProcessingComments": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ProposalReason": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ProposedBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ServiceCustomerStorys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerStory": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Enabled": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ServiceId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "CustomerStoryDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerStorys",
+          "on": [
+            {
+              "ref": [
+                "CustomerStoryDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "CustomerStory"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.FAQs": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Answer": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "Question": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionMasterConfigQuestions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Configuration": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "QuestionText": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ConfigQuestionAnswerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ConfigQuestionAnswers",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ConfigQuestionAnswerDetails",
+                "Question"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CustomizeMissionMasterConfigurationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomizeMissionMasterConfigurations",
+          "on": [
+            {
+              "ref": [
+                "CustomizeMissionMasterConfigurationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Configuration"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.BlueStoneProjects": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "GlobalAccountId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ProjectId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.Roadmaps": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ProductId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RoadmapPeriodDetails": {
+          "type": "cds.Association",
+          "target": "platServices.RoadmapPeriods",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "RoadmapPeriodDetails",
+                "Roadmap"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ViewFuzzySearchCustoms": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ApplicationType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "UseCaseCategory": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "UseCaseId": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "UseCaseLongDescription": {
+          "key": true,
+          "type": "cds.String",
+          "length": 450
+        },
+        "UseCaseShortDescription": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationIconUrl": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "ApplicationId": {
+          "type": "cds.Integer"
+        },
+        "ApplicationLoB": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationMissionCount": {
+          "type": "cds.Integer"
+        },
+        "ApplicationName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationProduct": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ReferenceCustomers": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Score": {
+          "type": "cds.Double"
+        },
+        "UseCaseRibbonColor": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "UseCaseRibbonText": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "UseCaseSubCategory": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Partners": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Classification": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FirstName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "HasAcceptedLegal": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "Phone": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ProfileDescription": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ProfileURL": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Regions": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "SupportCustomers": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "SupportMissions": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerCompanys",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "JoinedMissionsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "ContactMissionsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ContactMissionsDetails",
+                "PartnerContact"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        },
+        "MissionDetails2": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionDetails2",
+                "SapContact"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ServiceRoadmaps": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Roadmap": {
+          "type": "cds.Integer"
+        },
+        "RoadmapDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Roadmaps",
+          "on": [
+            {
+              "ref": [
+                "RoadmapDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Roadmap"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ServiceResourcess": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "FileName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FileType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FolderType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Location": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "RowOrder": {
+          "type": "cds.Integer"
+        },
+        "ServiceDetails": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ShortDescription": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ServiceDetailsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss",
+          "on": [
+            {
+              "ref": [
+                "ServiceDetailsDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ServiceDetails"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.InternalContacts": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CloudReportingCustomer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "RoleId": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "CloudReportingCustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CloudReportingCustomerCompanys",
+          "on": [
+            {
+              "ref": [
+                "CloudReportingCustomerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "CloudReportingCustomer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.BoardPinnedCards": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "MissionId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "PinnedCardId": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.FreeStyleInfos": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MailMessages": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 50000
+        }
+      }
+    },
+    "platServices.GuidedAnswerLinks": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "GuidedAnswerHeader": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Link": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.AnswerActions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Action": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Answer": {
+          "type": "cds.Integer"
+        },
+        "CardName": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ConfigQuestionAnswerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ConfigQuestionAnswers",
+          "on": [
+            {
+              "ref": [
+                "ConfigQuestionAnswerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Answer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UserNotifications": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "Header": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Read": {
+          "type": "cds.Boolean"
+        },
+        "RelatedObjectLink": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.PurchasedSolutionss": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CloudReportingCustomer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ServiceLevel": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "Solution": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "CloudReportingCustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CloudReportingCustomerCompanys",
+          "on": [
+            {
+              "ref": [
+                "CloudReportingCustomerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "CloudReportingCustomer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.PartnerCompanys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EmailDomain": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "MissionsCount": {
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PrmPartnerID": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "PartnerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "PartnerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PartnerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "PartnerDetails",
+                "PartnerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "ProposedPartnerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ProposedPartners",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ProposedPartnerDetails",
+                "PartnerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "ReferralDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Referrals",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ReferralDetails",
+                "PartnerCompany"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Answers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Body": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Partner": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Question": {
+          "type": "cds.Integer"
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Customer"
+              ]
+            }
+          ]
+        },
+        "PartnerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "PartnerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Partner"
+              ]
+            }
+          ]
+        },
+        "QuestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Questions",
+          "on": [
+            {
+              "ref": [
+                "QuestionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Question"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionProjects": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "GlobalAccountId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Mission": {
+          "type": "cds.Integer"
+        },
+        "ProjectId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Mission"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Services": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AdditionalCategories": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "HasSapStoreLink": {
+          "type": "cds.Boolean"
+        },
+        "Icon": {
+          "type": "cds.LargeString"
+        },
+        "LicenseModelType": {
+          "type": "cds.LargeString"
+        },
+        "MaterialId": {
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ProductId": {
+          "type": "cds.LargeString"
+        },
+        "Provider": {
+          "type": "cds.LargeString"
+        },
+        "RegionDataCenter": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Ribbon": {
+          "type": "cds.LargeString"
+        },
+        "ServiceJiraId": {
+          "type": "cds.LargeString"
+        },
+        "ShortDesc": {
+          "type": "cds.LargeString"
+        },
+        "ShortName": {
+          "type": "cds.LargeString"
+        },
+        "Tags": {
+          "type": "cds.String",
+          "length": 1024
+        }
+      }
+    },
+    "platServices.UseCaseStagings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LongDescription": {
+          "type": "cds.String",
+          "length": 450
+        },
+        "ShortDescription": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "ApplicationStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationStagings",
+          "on": [
+            {
+              "ref": [
+                "ApplicationStagingDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "BenefitStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.BenefitStagings",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "BenefitStagingDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "JourneyStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.JourneyStagings",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "JourneyStagingDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PainPointStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PainPointStagings",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "PainPointStagingDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.AllUnitVolumeRatess": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ChargingPeriod": {
+          "type": "cds.LargeString"
+        },
+        "MetricId": {
+          "type": "cds.LargeString"
+        },
+        "TierDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Tiers",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.ApplicationBoardConfigurations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EditMode": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ViewMode": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionJourneys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Missions": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "PartnerContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SapContact": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        },
+        "PartnerContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "PartnerContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerContact"
+              ]
+            }
+          ]
+        },
+        "SAPContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Partners",
+          "on": [
+            {
+              "ref": [
+                "SAPContactDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "SapContact"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Customers": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerCompany": {
+          "type": "cds.Integer"
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FirstName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Partner": {
+          "type": "cds.Boolean"
+        },
+        "Phone": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "AwardDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Awards",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "AwardDetails",
+                "Customer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "CustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerCompanys",
+          "on": [
+            {
+              "ref": [
+                "CustomerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "CustomerCompany"
+              ]
+            }
+          ]
+        },
+        "ErrorArchiveDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ErrorArchives",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ErrorArchiveDetails",
+                "Customer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "JoinedMissionsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "StartedMissionsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "StartedMissionsDetails",
+                "StartedByCustomer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "QuestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Questions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "QuestionDetails",
+                "Customer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Referrals": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "AppKey": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "Cc": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Channel": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CompanyName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "PartnerCompany": {
+          "type": "cds.Integer"
+        },
+        "ReferralId": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "ReferredEmail": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "Username": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PartnerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PartnerCompanys",
+          "on": [
+            {
+              "ref": [
+                "PartnerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PartnerCompany"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Features": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.ServiceMetrics": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "Code": {
+          "type": "cds.LargeString"
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ServiceDetailsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ServiceDetailss"
+        }
+      }
+    },
+    "platServices.UseCases": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "BenefitString": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "Category": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ChallengeString": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "HowToSolveString": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LongDescription": {
+          "type": "cds.String",
+          "length": 450
+        },
+        "RibbonColor": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "RibbonText": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ShortDescription": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SubCategory": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "UsecaseVersion": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "BenefitDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Benefits",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "BenefitDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "JourneyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Journeys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "JourneyDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "MissionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Missions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MissionDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PainPointDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PainPoints",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "PainPointDetails",
+                "Usecase"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.RatePlans": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Currency": {
+          "type": "cds.LargeString"
+        },
+        "MarketIds": {
+          "type": "cds.LargeString"
+        },
+        "ValidFrom": {
+          "type": "cds.LargeString"
+        },
+        "ValidTo": {
+          "type": "cds.LargeString"
+        },
+        "AllUnitVolumeRatesDetails": {
+          "type": "cds.Association",
+          "target": "platServices.AllUnitVolumeRatess",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "BlockRateDetails": {
+          "type": "cds.Association",
+          "target": "platServices.BlockRates",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "platServices.Questions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "Body": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "QuestionAnswered": {
+          "type": "cds.Boolean"
+        },
+        "QuestionProperties": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "QuestionType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "AnswerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Answers",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        },
+        "CustomerDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Customers",
+          "on": [
+            {
+              "ref": [
+                "CustomerDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Customer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.NotificationObjects": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "DeletedByUsers": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Header": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Message": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "NotifiedUsers": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "ReadByUsers": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "RelatedObjectLink": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.CancelledMissionReports": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "MissionId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CancellationOption": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CancellationReason": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CancelledBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CancelledDate": {
+          "type": "cds.Timestamp"
+        },
+        "Company": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "MissionName": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.ReviewCommentss": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Content": {
+          "type": "cds.String",
+          "length": 2000
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ReviewRequest": {
+          "type": "cds.Integer"
+        },
+        "MissionReviewRequestDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionReviewRequests",
+          "on": [
+            {
+              "ref": [
+                "MissionReviewRequestDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ReviewRequest"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.PartnerAppRoleMappings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ApplicationId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "PartnerId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AdditionalTitle": {
+          "type": "cds.LargeString"
+        },
+        "AdditionalWelcomeMsg": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "Role": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "platServices.MissionConversationReplys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "MissionConversation": {
+          "type": "cds.LargeString"
+        },
+        "Text": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "MissionConversationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.MissionConversations",
+          "on": [
+            {
+              "ref": [
+                "MissionConversationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "MissionConversation"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.Searchs": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Category": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ResultCount": {
+          "type": "cds.Integer"
+        },
+        "SearchString": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SearchedBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.CardMemberss": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CardId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UsersList": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.Documents": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Application": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "FileName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FileType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "FolderType": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Location": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LongDescription": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ObjectID": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "PartnerCompanyID": {
+          "type": "cds.Integer"
+        },
+        "ShortDescription": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "SortOrder": {
+          "type": "cds.Integer"
+        },
+        "ApplicationDetails": {
+          "type": "cds.Association",
+          "target": "platServices.Applications",
+          "on": [
+            {
+              "ref": [
+                "ApplicationDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Application"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.QuestionCustoms": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "QuestionId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "AnswerCount": {
+          "type": "cds.Integer"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "CreatedOn": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedOn": {
+          "type": "cds.Timestamp"
+        },
+        "QuestionUrl": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ShortDescription": {
+          "type": "cds.String",
+          "length": 512
+        },
+        "VotesCount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "platServices.TrialServiceMetadatas": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Duration": {
+          "type": "cds.Integer"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ScenarioDesc": {
+          "type": "cds.String",
+          "length": 300
+        },
+        "ScenarioResults": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ScenarioSteps": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "ServiceLink": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "TrialMode": {
+          "type": "cds.String",
+          "length": 300
+        }
+      }
+    },
+    "platServices.CloudReportingCustomerCompanys": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CustomerRegion": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "DiscoCustomerCompany": {
+          "type": "cds.Integer"
+        },
+        "IsPartner": {
+          "type": "cds.Boolean"
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "CustomerCompanyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.CustomerCompanys",
+          "on": [
+            {
+              "ref": [
+                "CustomerCompanyDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "DiscoCustomerCompany"
+              ]
+            }
+          ]
+        },
+        "InternalContactDetails": {
+          "type": "cds.Association",
+          "target": "platServices.InternalContacts",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "InternalContactDetails",
+                "CloudReportingCustomer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "PurchasedSolutionsDetails": {
+          "type": "cds.Association",
+          "target": "platServices.PurchasedSolutionss",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "PurchasedSolutionsDetails",
+                "CloudReportingCustomer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.MissionRequests": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ApplicationId": {
+          "type": "cds.Integer"
+        },
+        "ApplicationName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Channel": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CompanyId": {
+          "type": "cds.Integer"
+        },
+        "CompanyName": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Domain": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Note": {
+          "type": "cds.String",
+          "length": 2048
+        },
+        "UseCaseId": {
+          "type": "cds.Integer"
+        },
+        "UserId": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Username": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "platServices.JourneyStagings": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Description": {
+          "type": "cds.String",
+          "length": 65
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Usecase": {
+          "type": "cds.Integer"
+        },
+        "UseCaseStagingDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UseCaseStagings",
+          "on": [
+            {
+              "ref": [
+                "UseCaseStagingDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Usecase"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.UsecaseSuggestionConversations": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Text": {
+          "type": "cds.String",
+          "length": 1024
+        },
+        "UcSuggestion": {
+          "type": "cds.Integer"
+        },
+        "UsecaseSuggestionConversationReplyDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UsecaseSuggestionConversationReplys",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "UsecaseSuggestionConversationReplyDetails",
+                "UsecaseSuggestionConversation"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        },
+        "UsecaseSuggestionDetails": {
+          "type": "cds.Association",
+          "target": "platServices.UsecaseSuggestions",
+          "on": [
+            {
+              "ref": [
+                "UsecaseSuggestionDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "UcSuggestion"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platServices.ApplicationTypeTemplates": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ApplicationType": {
+          "type": "cds.Integer"
+        },
+        "CreatedAt": {
+          "type": "cds.Timestamp"
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastModifiedAt": {
+          "type": "cds.Timestamp"
+        },
+        "LastModifiedBy": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "PercentComplete": {
+          "type": "cds.Integer"
+        },
+        "Phase": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "Points": {
+          "type": "cds.Integer"
+        },
+        "ApplicationTypeDetails": {
+          "type": "cds.Association",
+          "target": "platServices.ApplicationTypes",
+          "on": [
+            {
+              "ref": [
+                "ApplicationTypeDetails",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ApplicationType"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
