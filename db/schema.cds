@@ -6,10 +6,10 @@ using {
 
 namespace nsAxios;
 
-entity Filtro1 :  ext {
+entity Tools : ext {
 
 }
 
-entity Filtro2 :  ext2 {
+entity ServiceDetailss : ext2 {
 
 }
